@@ -18,14 +18,14 @@ import datetime
 ######## ***************************************  
 ## Einstellung Plotts
 ######## ***************************************  
-
+'''
 plt.rcParams.update({
     "text.usetex": True,
     #"font.family": "monospace",
     #"font.monospace": 'Computer Modern Typewriter',  
     "font.size": 15.0 
 })
-
+'''
 
 
 ######## ***************************************  
