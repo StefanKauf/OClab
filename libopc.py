@@ -18,14 +18,14 @@ import datetime
 ######## ***************************************  
 ## Einstellung Plotts
 ######## ***************************************  
-'''
+
 plt.rcParams.update({
     "text.usetex": True,
     #"font.family": "monospace",
     #"font.monospace": 'Computer Modern Typewriter',  
     "font.size": 15.0 
 })
-'''
+
 
 
 ######## ***************************************  
@@ -63,9 +63,9 @@ def runge_kutta_k4(f,x,u,h=1):
 ## Systemdynamik vereinfachtes Lineares Modell
 ######## ***************************************  
 
-A_simple = np.array([[-param.R/param.L, 0, -(param.km)/(param.L*param.kg)],
+A_simple = np.array([[-param.R/param.L, 0, -(param.km*param.kg)/(param.L)],
               [0,                0,                          1  ],
-              [param.ng*param.nm*param.km*param.kg/param.Jeq,0,-param.b1/param.Jeq]])
+              [(param.ng*param.nm*param.km*param.kg)/(param.Jeq),0,-param.b1/param.Jeq]])
 
 B_simple = np.array([1/param.L,
               0,
