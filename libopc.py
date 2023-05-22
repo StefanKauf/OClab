@@ -75,7 +75,21 @@ D_simple = 0
 
 f_simple_dynamic = lambda x,u: A_simple@x+B_simple*u
 
+######## ***************************************  
+## Systemdynamik erweitertes Lineares Modell
+######## ***************************************  
 
+A_ex = np.array([[-param.R/param.L, 0, -(param.km*param.kg)/(param.L)],
+              [0,                0,                          1  ],
+              [(param.ng*param.nm*param.km*param.kg)/(param.Jeq),0,-param.b1/param.Jeq]])
+
+B_ex = np.array([1/param.L,
+              0,
+              0])
+C_ex = np.array([0,1,0])
+D_ex = 0
+
+f_ex_dynamic = lambda x,u: A_ex@x+B_ex*u
 
 ######## ***************************************  
 ## Export Trajektorie
