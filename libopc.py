@@ -78,15 +78,20 @@ f_simple_dynamic = lambda x,u: A_simple@x+B_simple*u
 ######## ***************************************  
 ## Systemdynamik erweitertes Lineares Modell
 ######## ***************************************  
+Nenner = param.Jm*param.kg**2*param.ng
 
-A_ex = np.array([[-param.R/param.L, 0, -(param.km*param.kg)/(param.L)],
-              [0,                0,                          1  ],
-              [(param.ng*param.nm*param.km*param.kg)/(param.Jeq),0,-param.b1/param.Jeq]])
+A_ex = np.array([[-param.R/param.L, 0, -(param.km*param.kg)/(param.L), 0, 0],
+              [0,                0,                          1  ,0,0],
+              [(param.nm*param.km)/(param.kg*param.Jm),  param.ks/Nenner,  (param.bs-param.b1)/Nenner, -param.ks/Nenner, -param.bs/Nenner],
+              [0,  0,0, 0,1],
+              [0,  -param.ks/param.J1, -param.bs/param.J1, param.ks/param.J1, (param.bs-param.b2)/param.J1]])
 
 B_ex = np.array([1/param.L,
               0,
+              0,
+              0,
               0])
-C_ex = np.array([0,1,0])
+C_ex = np.array([0,0,0,1,0])
 D_ex = 0
 
 f_ex_dynamic = lambda x,u: A_ex@x+B_ex*u
