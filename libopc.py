@@ -23,7 +23,7 @@ plt.rcParams.update({
     "text.usetex": True,
     #"font.family": "monospace",
     #"font.monospace": 'Computer Modern Typewriter',  
-    "font.size": 15.0 
+    "font.size": 20.0 
 })
 
 
@@ -77,7 +77,7 @@ f_simple_dynamic = lambda x,u: A_simple@x+B_simple*u
 
 ######## ***************************************  
 ## Systemdynamik erweitertes Lineares Modell
-######## ***************************************  
+######## ***************************************  s
 Nenner = param.Jm*param.ng
 
 A_ex = np.array([[-param.R/param.L, 0, -(param.km*param.kg)/(param.L), 0, 0],
@@ -100,12 +100,12 @@ f_ex_dynamic = lambda x,u: A_ex@x+B_ex*u
 ######## ***************************************  
 ## Systemdynamik erweitertes Lineares Modell mit Jeq
 ######## ***************************************  
-
+Nenner2 = param.Jm*param.ng*param.kg**2
 A_ex2 = np.array([[-param.R/param.L, 0, -(param.km*param.kg)/(param.L), 0, 0],
               [0,                0,                          1  ,0,0],
-              [(param.nm*param.km*param.ng*param.kg)/(param.Jeq),  -param.ks/param.Jeq,  (-param.bs-param.b1)/param.Jeq, param.ks/param.Jeq, param.bs/param.Jeq],
+              [(param.nm*param.km)/(param.Jm*param.kg),  -param.ks/Nenner2,  (-param.bs-param.b1)/Nenner2, param.ks/Nenner2, param.bs/Nenner2],
               [0,  0,0, 0,1],
-              [0,  param.ks/param.J1, param.bs/param.J1, -param.ks/param.J1, (-param.bs-param.b2)/param.J1]])
+              [0,  +param.ks/param.J1, +param.bs/param.J1, -param.ks/param.J1, (-param.bs-param.b2)/param.J1]])
 
 B_ex2 = np.array([1/param.L,
               0,

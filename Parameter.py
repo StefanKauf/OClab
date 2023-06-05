@@ -12,7 +12,7 @@ L  = 0.18*1e-3    # Ankerinduktivität           [H]
 km = 7.68*1e-3    # Mschinenkonstante           [Nm/A]
 
 kg = 70           # Übersetzungsverhältnis      []
-Jm = 3.7143*1e-5   # Trägheitsmoment Motor       [kgm²]
+Jm = 3.7143*1e-7   # Trägheitsmoment Motor       [kgm²]
 J1 = 5.7364*1e-4    # Trägheitsmoment Last        [kgm²]
 
 ks = 0.8742       # Federkonstante Kupplung     [Nm/rad] 
