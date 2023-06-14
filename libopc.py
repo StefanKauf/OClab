@@ -23,7 +23,13 @@ plt.rcParams.update({
     "text.usetex": True,
     #"font.family": "monospace",
     #"font.monospace": 'Computer Modern Typewriter',  
-    "font.size": 20.0 
+    "font.size": 28.0,
+    "axes.titlesize" : 30,
+    "axes.labelsize" : 28,
+    "lines.linewidth" : 3,
+    "lines.markersize" : 10,
+    "xtick.labelsize" : 28,
+    "ytick.labelsize" : 28
 })
 
 
